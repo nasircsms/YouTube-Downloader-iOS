@@ -86,7 +86,7 @@ fileprivate extension AVPlayerViewController {
         
         let tracks = UIApplication.shared.avPlayerViewController()!.player!.currentItem!.tracks
         for track in tracks {
-            if track.assetTrack.hasMediaCharacteristic(AVMediaCharacteristicVisual) {
+          if track.assetTrack.hasMediaCharacteristic(AVMediaCharacteristic.visual) {
                 track.isEnabled = enabled
             }
         }

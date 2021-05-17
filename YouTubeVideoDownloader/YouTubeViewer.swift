@@ -56,14 +56,6 @@ class YouTubeViewer: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let f = view.frame
-        webView.frame = CGRect(x: f.origin.x, y: f.origin.y, width: f.size.width, height: f.size.height - tabBarController!.tabBar.frame.size.height)
-        webView.navigationDelegate = self
-        downloadButton.defaultFrame = CGRect(x: (f.size.width * 0.635) - 5, y: webView.frame.size.height -  (f.size.height * 0.065) - 5, width: f.size.width * 0.375, height: (f.size.height * 0.15) - tabBarController!.tabBar.frame.size.height)
-        downloadButton.frame = downloadButton.defaultFrame
-        downloadButton.frame.origin.y = UIScreen.main.bounds.size.height
-        downloadButton.addTarget(self, action: #selector(downloadTapped), for: .touchUpInside)
-        youTubeButton.frame = CGRect(x: 5, y: downloadButton.defaultFrame.origin.y, width: downloadButton.frame.size.width * 0.4, height: downloadButton.frame.size.height)
-        youTubeButton.addTarget(self, action: #selector(loadHome), for: .touchUpInside)
         webView.navigationDelegate = self
         view.addSubview(webView)
         view.addSubview(downloadButton)
@@ -72,7 +64,26 @@ class YouTubeViewer: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(blockAvPlayerViewControllerAutoPlay), name: .UIWindowDidResignKey, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(shouldShowButton), name: NSNotification.Name(rawValue: "shouldShowDownloadButton"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(shouldHideButton), name: NSNotification.Name(rawValue: "shouldHideDownloadButton"), object: nil)
+      webView.translatesAutoresizingMaskIntoConstraints = false
+      if #available(iOS 11.0, *) {
+        NSLayoutConstraint.activate([
+          webView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+          webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+          webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+          webView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+      } else {
+        // Fallback on earlier versions
+      }
+      DispatchQueue.main.async {
         
+        self.downloadButton.defaultFrame = CGRect(x: (f.size.width * 0.635) - 5, y: self.webView.frame.size.height -  (f.size.height * 0.065) - 5, width: f.size.width * 0.375, height: (f.size.height * 0.15) - self.tabBarController!.tabBar.frame.size.height)
+        self.downloadButton.frame = self.downloadButton.defaultFrame
+        self.downloadButton.frame.origin.y = UIScreen.main.bounds.size.height
+        self.downloadButton.addTarget(self, action: #selector(self.downloadTapped), for: .touchUpInside)
+        self.youTubeButton.frame = CGRect(x: 5, y: self.downloadButton.defaultFrame.origin.y, width: self.downloadButton.frame.size.width * 0.4, height: self.downloadButton.frame.size.height)
+        self.youTubeButton.addTarget(self, action: #selector(self.loadHome), for: .touchUpInside)
+      }
     }
     
     @objc private func loadHome() {

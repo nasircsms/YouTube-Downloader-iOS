@@ -76,16 +76,19 @@ class VideoList : UIViewController {
         
     }
     
-    @objc fileprivate func mediaPlayerNextButtonAction() {
+  
+    @objc fileprivate func mediaPlayerNextButtonAction() -> MPRemoteCommandHandlerStatus {
         if let item = currentPlayer.currentItem {
               replaceVideo(nextVideo(fromFilename: (item.asset as! AVURLAsset).url.lastPathComponent))
         }
+      return .success
     }
     
-    @objc fileprivate func mediaPlayerPreviousButtonAction() {
+    @objc fileprivate func mediaPlayerPreviousButtonAction() -> MPRemoteCommandHandlerStatus {
         if let item = currentPlayer.currentItem {
             replaceVideo(previousVideo(fromFilename: (item.asset as! AVURLAsset).url.lastPathComponent))
         }
+      return .success
     }
     
     fileprivate func appendWithoutAddingDuplicates(videos: [String]) {
