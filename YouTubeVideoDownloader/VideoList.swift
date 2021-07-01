@@ -68,7 +68,7 @@ class VideoList : UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    UIApplication.shared.setStatusBarHidden(true, with: .none)
+    // UIApplication.shared.setStatusBarHidden(true, with: .none)
     appendWithoutAddingDuplicates(videos: try! FileManager.default.contentsOfDirectory(atPath: Literals.rootDirectory.path))
     videoTable.reloadData()
     
@@ -173,10 +173,6 @@ extension VideoList : UITableViewDelegate {
 
 extension VideoList : UITableViewDataSource {
   
-  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return "Place Holder Foo"
-  }
-  
   func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     if let cell = (tableView.cellForRow(at: indexPath) as? VideoCell) {
       return cell.progressBar.isHidden
@@ -198,18 +194,6 @@ extension VideoList : UITableViewDataSource {
     }catch {
       UIAlertView(title: "Error", message: "Couldn't Delete File", delegate: nil, cancelButtonTitle: "OK").show()
     }
-  }
-  
-  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    let v = UIView()
-    v.backgroundColor = UIColor.red
-    let l = UILabel(frame: CGRect(x: view.center.x - 100, y: 3.5, width: 200, height: 20))
-    l.textAlignment = .center
-    l.text = "Your Downloads"
-    l.font = UIFont(name: "Avenir", size: (isIpad ? 30 : 18))
-    l.textColor = UIColor.white
-    v.addSubview(l)
-    return v
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
