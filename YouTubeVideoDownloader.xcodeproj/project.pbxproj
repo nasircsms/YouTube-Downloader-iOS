@@ -264,7 +264,7 @@
 				TargetAttributes = {
 					3EEEC94B1E19B4AF00CFD428 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = WGS4W54952;
+						DevelopmentTeam = Y48AS6APAU;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -361,12 +361,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-YouTubeVideoDownloader/Pods-YouTubeVideoDownloader-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GCDWebServer/GCDWebServer.framework",
 				"${BUILT_PRODUCTS_DIR}/TFHpple/TFHpple.framework",
 				"${BUILT_PRODUCTS_DIR}/WKWebViewWithURLProtocol/WKWebViewWithURLProtocol.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GCDWebServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TFHpple.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WKWebViewWithURLProtocol.framework",
 			);
@@ -541,7 +543,7 @@
 			baseConfigurationReference = 4D1FA5155AF40A0C5BBB18AF /* Pods-YouTubeVideoDownloader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = WGS4W54952;
+				DEVELOPMENT_TEAM = Y48AS6APAU;
 				INFOPLIST_FILE = YouTubeVideoDownloader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -557,7 +559,7 @@
 			baseConfigurationReference = 54BDAFF263D672E55EC7251E /* Pods-YouTubeVideoDownloader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = WGS4W54952;
+				DEVELOPMENT_TEAM = Y48AS6APAU;
 				INFOPLIST_FILE = YouTubeVideoDownloader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

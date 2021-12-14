@@ -1,24 +1,30 @@
 PODS:
   - Alamofire (4.2.0)
+  - GCDWebServer (3.5.4):
+    - GCDWebServer/Core (= 3.5.4)
+  - GCDWebServer/Core (3.5.4)
   - TFHpple (2.0.0)
   - WKWebViewWithURLProtocol (0.1.0)
 
 DEPENDENCIES:
   - Alamofire
+  - GCDWebServer
   - TFHpple
   - WKWebViewWithURLProtocol
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - GCDWebServer
     - TFHpple
     - WKWebViewWithURLProtocol
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
   TFHpple: a916fe0799eb30aa29b2670d14d5868cdd3a5b81
   WKWebViewWithURLProtocol: f7f2b367c40680105794a068ed2bb2cd5922c27c
 
-PODFILE CHECKSUM: 21771dd57e31614e0ee9e20d0257e8afecd867ce
+PODFILE CHECKSUM: fde296dc87ecfa6ffffa927b5589287b700466a3
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.2

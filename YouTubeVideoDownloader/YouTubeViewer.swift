@@ -120,8 +120,9 @@ class YouTubeViewer: UIViewController {
     if webView.url != nil && webView.url!.absoluteString.contains("watch?v=") {
       webView.evaluateJavaScript("document.documentElement.outerHTML.toString()", completionHandler: { (html: Any?, error: Error?) in
         if html == nil { return }
-        if let url = YouTubeScraper.getDirectLink(fromPageSource: html as! String) {
-          self.initDownload(url: url, name: YouTubeScraper.getVideoTitle(fromPageSource: html as! String), imgUrl: YouTubeScraper.getThumbnailImage(fromUrlString: self.webView.url!.absoluteString))
+        let scrapper = YouTubeScraper()
+        if let url = scrapper.getDirectLink(fromPageSource: html as! String) {
+          self.initDownload(url: url, name: scrapper.getVideoTitle(fromPageSource: html as! String), imgUrl: scrapper.getThumbnailImage(fromUrlString: self.webView.url!.absoluteString))
         }
       })
       
